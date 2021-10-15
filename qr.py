@@ -4,13 +4,14 @@ from pyzbar.pyzbar import decode       # library for decoding qrcode
 from PIL import Image                  # library for working image
 
 
-def makeQR(data, bgcolor = 'white', fillcolor = 'black', bordersize = 5, boxsize = 10):
+def makeQR(data, folder = '' , bgcolor = 'white', fillcolor = 'black', bordersize = 5, boxsize = 10,):
     '''function for making qrcode you must enter value data other values you may enter if you want
        * data       is info for to make qrcode
        * bgcolor    is background color of qrcode
        * fillcolor  is color of qrcode
        * bordersize is border of qrcode
-       * boxsize    is boxsize of qrcode  
+       * boxsize    is boxsize of qrcode
+       * folder     is folder in ram of computer to save qrcode file  
     '''
     qr = qrcode.QRCode(
         version = 1,
@@ -20,7 +21,13 @@ def makeQR(data, bgcolor = 'white', fillcolor = 'black', bordersize = 5, boxsize
     qr.add_data(data)       # adding information to qrcode    
     img = qr.make_image(fill_color = fillcolor, back_color = bgcolor) # adding style information to qrcode
     name = str(uuid4()) + '.png' # generation name for qrcode
-    img.save(name)               # saving qrcode format of image   
+    
+    if folder == '' :
+       img.save(name)               # saving qrcode format of image
+    
+    else :
+        save = folder+name
+        img.save(save)   
 
 
 def get_infoQR(qrcode):
