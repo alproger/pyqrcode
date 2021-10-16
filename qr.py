@@ -1,7 +1,7 @@
 import qrcode                          # libarary for generate qrcode
 from uuid import uuid4                 # library for generate random name for qrcode
 from pyzbar.pyzbar import decode       # library for decoding qrcode
-from PIL import Image                  # library for working image
+from PIL import Image                  # library for working with image
 
 
 def makeQR(data, folder = '' , bgcolor = 'white', fillcolor = 'black', bordersize = 5, boxsize = 10,):
