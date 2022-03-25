@@ -20,7 +20,7 @@ def makeQR(data, folder = '' , bgcolor = 'white', fillcolor = 'black', bordersiz
 
     qr.add_data(data)       # adding information to qrcode    
     img = qr.make_image(fill_color = fillcolor, back_color = bgcolor) # adding style information to qrcode
-    name = str(uuid4()) + '.png' # generation name for qrcode
+    name = 'qr.png' # generation name for qrcode
     
     if folder == '' :
        img.save(name)               # saving qrcode format of image
